@@ -1,0 +1,29 @@
+<?php
+use Magento\Framework\View\Element\Template;
+use Magecorebr\WhatsappContactButton\ViewModel\WhatsappButton;
+
+/**
+ * @var Template $block
+ * @var WhatsappButton $viewModel
+ */
+$viewModel = $block->getData('viewModel');
+?>
+
+<div id="whatsapp-button-container" data-bind="scope: 'whatsAppButton'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+<script type="text/x-magento-init">
+    {
+        "#whatsapp-button-container": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "whatsAppButton": {
+                        "component": "Magecorebr_WhatsappContactButton/js/whatsapp-button",
+                        "template": "Magecorebr_WhatsappContactButton/whatsapp-button",
+                        "phoneNumber": "<?php echo $viewModel->getPhoneNumber(); ?>"
+                }
+            }
+        }
+    }
+}
+</script>

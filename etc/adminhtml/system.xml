@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+  ~ @copyright (c) 2024 Magecore
+  ~ @url https://magecore.com.br
+  ~ @author Marcio Maciel <os@magecore.com.br>
+  ~ @license See LICENSE.md in the module root directory for license information.
+  ~
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="contact">
+            <tab>general</tab>
+            <group id="whatsapp_button" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>WhatsApp Button</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="phone_number" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>WhatsApp Number</label>
+                    <comment><![CDATA[Include country code without + symbol. Eg: if your country code is +55 and WhatsApp number is 11999999999, then type 5511999999999 above.]]></comment>
+                    <depends>
+                        <field id="*/whatsapp_button/enabled">1</field>
+                    </depends>
+                    <validate>required-entry validate-digits</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,19 @@
+{
+    "name": "magecorebr/magento2-module-whatsapp-contact-button",
+    "description": "A Magento 2 module that adds a WhatsApp contact button to the storefront, enabling customers to initiate support conversations easily.",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "*"
+    },
+    "license": [
+        "MIT"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Magecorebr\\WhatsappContactButton\\": ""
+        }
+    }
+}
